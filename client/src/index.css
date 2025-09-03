@@ -10,24 +10,24 @@
   --card-foreground: hsl(222, 84%, 14%);
   --popover: hsl(0, 0%, 100%);
   --popover-foreground: hsl(222, 84%, 14%);
-  --primary: hsl(213, 93%, 57%);
+  --primary: hsl(213, 93%, 50%);
   --primary-foreground: hsl(210, 40%, 98%);
   --secondary: hsl(181, 65%, 39%);
   --secondary-foreground: hsl(210, 40%, 98%);
-  --muted: hsl(210, 40%, 96%);
-  --muted-foreground: hsl(215, 16%, 47%);
+  --muted: hsl(210, 40%, 94%);
+  --muted-foreground: hsl(215, 16%, 40%);
   --accent: hsl(210, 40%, 96%);
   --accent-foreground: hsl(222, 84%, 14%);
-  --destructive: hsl(0, 84%, 60%);
+  --destructive: hsl(0, 84%, 55%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --border: hsl(214, 32%, 91%);
-  --input: hsl(214, 32%, 91%);
-  --ring: hsl(213, 93%, 57%);
-  --chart-1: hsl(151, 79%, 44%);
-  --chart-2: hsl(213, 93%, 57%);
-  --chart-3: hsl(33, 100%, 52%);
-  --chart-4: hsl(320, 65%, 52%);
-  --chart-5: hsl(270, 95%, 75%);
+  --border: hsl(214, 32%, 88%);
+  --input: hsl(214, 32%, 88%);
+  --ring: hsl(213, 93%, 50%);
+  --chart-1: hsl(151, 79%, 40%);
+  --chart-2: hsl(213, 93%, 50%);
+  --chart-3: hsl(33, 100%, 48%);
+  --chart-4: hsl(320, 65%, 48%);
+  --chart-5: hsl(270, 95%, 70%);
   --radius: 0.75rem;
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-serif: Georgia, serif;
@@ -41,19 +41,19 @@
   --card-foreground: hsl(210, 40%, 98%);
   --popover: hsl(222, 84%, 8%);
   --popover-foreground: hsl(210, 40%, 98%);
-  --primary: hsl(213, 93%, 57%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(181, 65%, 39%);
-  --secondary-foreground: hsl(210, 40%, 98%);
+  --primary: hsl(213, 93%, 60%);
+  --primary-foreground: hsl(222, 84%, 4%);
+  --secondary: hsl(181, 65%, 45%);
+  --secondary-foreground: hsl(222, 84%, 4%);
   --muted: hsl(222, 84%, 12%);
-  --muted-foreground: hsl(215, 16%, 57%);
+  --muted-foreground: hsl(215, 16%, 65%);
   --accent: hsl(222, 84%, 12%);
   --accent-foreground: hsl(210, 40%, 98%);
-  --destructive: hsl(0, 84%, 60%);
+  --destructive: hsl(0, 84%, 65%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --border: hsl(222, 84%, 16%);
-  --input: hsl(222, 84%, 16%);
-  --ring: hsl(213, 93%, 57%);
+  --border: hsl(222, 84%, 20%);
+  --input: hsl(222, 84%, 20%);
+  --ring: hsl(213, 93%, 60%);
 }
 
 @layer base {
@@ -83,11 +83,13 @@
 
 .chart-bar {
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .chart-bar:hover {
   transform: scaleY(1.05);
-  filter: brightness(1.1);
+  filter: brightness(1.2) contrast(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .risk-indicator {
@@ -126,42 +128,50 @@ input[type="range"]::-webkit-slider-track {
   background: hsl(var(--muted));
   height: 8px;
   border-radius: 4px;
+  border: 1px solid hsl(var(--border));
 }
 
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
   background: hsl(var(--primary));
-  border: 2px solid white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 0 0 1px hsl(var(--border));
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.2);
+  background: hsl(var(--primary));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 2px hsl(var(--primary)), 0 0 0 4px white;
+  border: 3px solid white;
 }
 
 input[type="range"]::-moz-range-track {
   background: hsl(var(--muted));
   height: 8px;
   border-radius: 4px;
-  border: none;
+  border: 1px solid hsl(var(--border));
 }
 
 input[type="range"]::-moz-range-thumb {
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
   background: hsl(var(--primary));
-  border: 2px solid white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 0 0 1px hsl(var(--border));
   cursor: pointer;
-  border: none;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  background: hsl(var(--primary));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 2px hsl(var(--primary)), 0 0 0 4px white;
 }
 
 /* Loading animations */

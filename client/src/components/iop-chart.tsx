@@ -72,6 +72,7 @@ export default function IopChart({ predictions }: IopChartProps) {
           variant="outline" 
           size="sm" 
           onClick={exportChart}
+          className="hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-200 hover:shadow-md"
           data-testid="button-export-chart"
         >
           <Download className="w-4 h-4 mr-1" />
@@ -104,10 +105,11 @@ export default function IopChart({ predictions }: IopChartProps) {
                   }}
                 >
                   {isHovered && (
-                    <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-xs whitespace-nowrap z-10">
+                    <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-xs whitespace-nowrap z-10 border-2 border-white shadow-lg">
                       <div className="font-semibold">{prediction.hour}:00</div>
                       <div>{prediction.predicted_iop} mmHg</div>
                       <div className="capitalize">{prediction.risk_level} risk</div>
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
                     </div>
                   )}
                 </div>
